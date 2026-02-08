@@ -1,26 +1,33 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* DEFINING THE BRAND PALETTE (v4 Syntax) */
+  --color-quantum-red: #FF3B3B;
+  --color-quantum-slate: #0F1115;
+  --color-quantum-grey: #F4F4F4;
+  --color-quantum-white: #FFFFFF;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  body {
+    /* Larger text and premium spacing as requested */
+    @apply bg-[family-name:--color-quantum-white] text-[family-name:--color-quantum-slate] antialiased;
+    font-size: 20px;
+    line-height: 1.6;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  h1, h2, h3, h4 {
+    @apply font-black uppercase italic tracking-tighter;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Fixing the build error by applying standard classes correctly */
+  .industrial-card {
+    @apply bg-white border border-slate-200 p-12 transition-all duration-500 hover:bg-[family-name:--color-quantum-slate] hover:text-white;
+  }
+  
+  .btn-quantum {
+    @apply bg-[family-name:--color-quantum-slate] text-white px-12 py-6 text-sm font-black uppercase tracking-[0.2em] hover:bg-[family-name:--color-quantum-red] transition-colors;
+  }
 }
