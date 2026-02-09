@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* DEFINING THE BRAND PALETTE (v4 Syntax) */
   --color-quantum-red: #FF3B3B;
   --color-quantum-slate: #0F1115;
   --color-quantum-grey: #F4F4F4;
@@ -10,24 +9,23 @@
 
 @layer base {
   body {
-    /* Larger text and premium spacing as requested */
     @apply bg-[family-name:--color-quantum-white] text-[family-name:--color-quantum-slate] antialiased;
     font-size: 20px;
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
-  h1, h2, h3, h4 {
-    @apply font-black uppercase italic tracking-tighter;
-  }
+  /* Massive Headers */
+  h1 { @apply text-7xl md:text-9xl font-black uppercase italic tracking-tighter leading-[0.85] mb-8; }
+  h2 { @apply text-5xl md:text-7xl font-black uppercase italic tracking-tighter mb-6; }
 }
 
 @layer components {
-  /* Fixing the build error by applying standard classes correctly */
-  .industrial-card {
-    @apply bg-white border border-slate-200 p-12 transition-all duration-500 hover:bg-[family-name:--color-quantum-slate] hover:text-white;
-  }
-  
   .btn-quantum {
-    @apply bg-[family-name:--color-quantum-slate] text-white px-12 py-6 text-sm font-black uppercase tracking-[0.2em] hover:bg-[family-name:--color-quantum-red] transition-colors;
+    @apply bg-[family-name:--color-quantum-slate] text-white px-12 py-6 text-sm font-black uppercase tracking-[0.2em] 
+           hover:bg-[family-name:--color-quantum-red] transition-all duration-300 active:scale-95;
+  }
+
+  .industrial-border {
+    @apply border-l-8 border-quantum-red pl-8;
   }
 }
