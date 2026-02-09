@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-quantum-red: #FF3B3B;
+  --color-quantum-slate: #0F1115;
+  --color-quantum-grey: #F4F4F4;
+  --color-quantum-white: #FFFFFF;
+}
+
+@layer base {
+  body {
+    @apply bg-[family-name:--color-quantum-white] text-[family-name:--color-quantum-slate] antialiased;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  /* Massive Headers */
+  h1 { @apply text-7xl md:text-9xl font-black uppercase italic tracking-tighter leading-[0.85] mb-8; }
+  h2 { @apply text-5xl md:text-7xl font-black uppercase italic tracking-tighter mb-6; }
+}
+
+@layer components {
+  .btn-quantum {
+    @apply bg-[family-name:--color-quantum-slate] text-white px-12 py-6 text-sm font-black uppercase tracking-[0.2em] 
+           hover:bg-[family-name:--color-quantum-red] transition-all duration-300 active:scale-95;
+  }
+
+  .industrial-border {
+    @apply border-l-8 border-quantum-red pl-8;
+  }
+}
